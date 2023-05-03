@@ -1,0 +1,73 @@
+.container {
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	overflow: auto;
+}
+
+.card {
+	width: 50%;
+	margin: 50px auto;
+	background-color: white;
+	padding: 10px 15px;
+	border-radius: 10px;
+}
+
+label,
+input {
+	display: block;
+	width: 100%;
+	margin-bottom: 5px;
+}
+label {
+	font-weight: bold;
+}
+input {
+	border: 1px solid rgb(190, 190, 190);
+}
+button {
+	background-color: blueviolet;
+	color: white;
+	padding: 5px 20px;
+	border: none;
+}
+
+.user-list {
+	padding: 10px 5px;
+}
+.user {
+	border: 1px dotted rgb(158, 158, 158);
+	padding: 3px;
+	margin-bottom: 8px;
+}
+.alert-window {
+	width: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+	border-radius: 10px;
+	overflow: auto;
+}
+.alert-heading {
+	background-color: blueviolet;
+	padding: 10px;
+}
+
+.alert-message {
+	background-color: #fff;
+	padding: 20px;
+}
+.hidden {
+	display: none;
+}
+.overlay {
+	background-color: rgba(255, 255, 255, 0.781);
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
