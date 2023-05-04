@@ -1,26 +1,21 @@
 import React, { useState } from 'react';
 import "./App.css";
-import UserList from "./UserList";
+import Container from './components/Container';
 import Card from './Card';
+import Form from './components/Form';
+import UserList from "./components/UserList";
+import Overlay from './components/Overlay';
+import AlertWindow from './components/AlertWindow';
 function App() {
   const [users, setUsers] = useState([]);
-  let [userName, setUserName] = useState("");
-  let [age, setAge] = useState("");
   let [isValid, setIsValid] = useState(true);
   let [errorMessage, setErrorMessage] = useState("");
 
   let data = <p>No users found</p>;
 
-  const userNameInputHandler = (e) => {
-    setUserName(e.target.value);
-  }
-  const ageInputHandler = (e) => {
-    setAge(e.target.value);
-  }
-  const addUserHandler = (e) => {
-    e.preventDefault();
+  const addUserHandler = (username, age) => {
     //empty fields handle
-    if (!userName || !age) {
+    if (!username || !age) {
       setErrorMessage("Please enter a name and age(none empty values)");
       setIsValid(false);
       return;
@@ -32,7 +27,7 @@ function App() {
       return;
     }
     //create user object using username and age 
-    const user = { username: userName, age: age, key: Math.random() };
+    const user = { username: username, age: age, key: Math.random() };
     //add user to state
     setUsers((prevState) => {
       return [user, ...prevState];
@@ -41,29 +36,19 @@ function App() {
   const closeModal = () => {
     setIsValid(true);
   }
-
-  if (users.length > 0)
+  if (users.length > 0) {
     data = <UserList usersData={users} />
+  }
+
   return (
-    <div className={"container"}>
+    <Container>
       <Card>
-        <form onSubmit={addUserHandler} className="form">
-          <label>Username</label>
-          <input type="text" name="username" onChange={userNameInputHandler} />
-          <label>Age(Years)</label>
-          <input type="text" name="age" onChange={ageInputHandler} />
-          <button type="Submit">Add User</button>
-        </form>
+        <Form onAddUser={addUserHandler} />
       </Card>
       <Card className="card">{data}</Card>
-      <div className={`overlay ${isValid ? "hidden" : ""}`} onClick={closeModal}>
-      </div>
-      <div className={`alert-window ${isValid ? "hidden" : ""}`}>
-        <h2 className='alert-heading'>Invalid input</h2>
-        <p className='alert-message'>{errorMessage}</p>
-        <button onClick={closeModal}>Okay</button>
-      </div>
-    </div >
+      <Overlay isvalid={isValid} closemodal={closeModal} />
+      <AlertWindow isvalid={isValid} errormessage={errorMessage} onCloseModal={closeModal} />
+    </Container>
   );
 }
 
