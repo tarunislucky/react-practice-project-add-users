@@ -75,3 +75,9 @@ setEnteredAge("");
 
 1. create ErrorModal component.
 2. insert that into AddUser component as a sibling.
+
+## 8f728ca managing error state
+
+1. create state for error
+2. set the error state when user enters invalid input
+3. conditionally render ErrorModal if error state has an error object
