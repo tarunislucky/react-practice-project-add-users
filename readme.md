@@ -70,3 +70,8 @@ setEnteredAge("");
 2. delegate `addUserHandler` from App to AddUser component via props.
 3. pass new user details to that handler from AddUser.
 4. `update` the state when new user is submitted from AddUser component.
+
+## dfd28ee - adding error modal component
+
+1. create ErrorModal component.
+2. insert that into AddUser component as a sibling.
