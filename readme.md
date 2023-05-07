@@ -36,3 +36,20 @@
 2. use the `onChange prop` to set handlers on both username and age inputs.
 3. `useState` to manage state of username and age in AddUser component.
 4. update the state inside the handlers.
+
+## 770153b - reset input field states after submitting form
+
+1. reset the input field state
+
+```javascript
+setEnteredUsername("");
+setEnteredAge("");
+```
+
+2. reflect the change on UI with value prop
+
+```javascript
+<input id="username" type="text" value={enteredUsername} onChange={userNamechangeHandler} />
+
+<input id="age" type="number" value={enteredAge} onChange={ageChangeHandler} />
+```
