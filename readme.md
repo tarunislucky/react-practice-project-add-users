@@ -53,3 +53,8 @@ setEnteredAge("");
 
 <input id="age" type="number" value={enteredAge} onChange={ageChangeHandler} />
 ```
+
+## af9ec03 validate username and age
+
+1. return if username or age is empty.
+2. return if age is less than 1
