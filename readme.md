@@ -30,7 +30,7 @@
 3. use css classes imported in step-2
 4. import Button into AddUser component
 
-## a7f86a8 - managing user input state
+## b3bb866 - managing user input state
 
 1. create `userNameChangeHandler` and `ageChangeHandler` in AddUser comp.
 2. use the `onChange prop` to set handlers on both username and age inputs.
