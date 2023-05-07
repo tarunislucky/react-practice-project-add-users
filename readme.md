@@ -63,3 +63,10 @@ setEnteredAge("");
 
 1. create UsersList component
 2. Add that to App component
+
+## dc0f1fb - managing list of users via state
+
+1. create `state` for `usersList` in App component
+2. delegate `addUserHandler` from App to AddUser component via props.
+3. pass new user details to that handler from AddUser.
+4. `update` the state when new user is submitted from AddUser component.
